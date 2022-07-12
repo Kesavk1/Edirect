@@ -1,0 +1,31 @@
+PubMed is an online repository of references and abstracts of publications in the fields of medicine and life sciences
+
+easyPubMed is an R interface to the Entrez Programming Utilities aimed at allowing an easy and smooth programmatic access
+to PubMed. The package is suitable for batch downloading large volumes of records (via the batch_pubmed_download() function), 
+and comes with a set of functions to perform basic processing of the PubMed query output. easyPubMed can request and handle 
+PubMed records in either XML or TXT format.
+
+Installation
+To install easyPubMed from CRAN, you can run the following line of code
+
+##install.packages("easyPubMed")
+
+Before using the functions included in easyPubMed, make sure to load the library.
+
+##library(easyPubMed)
+
+Getting started - Retrieving data from PubMed
+The first section of this tutorial covers how to use easyPubMed for querying Entrez and how to retrieve or download PubMed records
+from the Entrez History Server.
+
+Saving the query
+##my_Search <- 'Damiano Fantini[AU] AND "2018"[PDAT]'
+
+PubMed is queried via the get_pubmed_ids() function, which takes a Query string as argument
+##my_entrez_id <- get_pubmed_ids(my_search)
+
+Data can be retrieved from the History Server via the fetch_pubmed_data() function. The records can be requested in either XML or TXT format.
+##my_abstracts_txt <- fetch_pubmed_data(my_entrez_id, format = "abstract")
+
+head of abstract
+##head(my_abstracts_txt)
